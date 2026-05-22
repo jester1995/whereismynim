@@ -1,41 +1,835 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="naver-site-verification" content="5fd23d2c8f53b6ddc8c0a1c41cc4522178bd4c3f" />
-  <meta name="msvalidate.01" content="B3C87A12678CEF69B69AB9B2EB2958AE" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>내 님은 어디에 — 신청만 하면 다 알아서 해주는 소개팅</title>
+<meta name="description" content="사진 없이 성향으로 만나는 1:1 소개팅. 외모를 안 보는 건 아니에요 — 분위기까지 주인장이 직접 챙겨드려요. 식당 예약, 일정 조율, 정산까지 신청 한 번이면 끝." />
+<meta name="naver-site-verification" content="5fd23d2c8f53b6ddc8c0a1c41cc4522178bd4c3f" />
+<meta name="msvalidate.01" content="B3C87A12678CEF69B69AB9B2EB2958AE" />
 
-  <!-- 기본 SEO -->
-  <title>내님은 어디에 - 소개팅 매칭 서비스</title>
-  <meta name="description" content="내님은 어디에는 25~40세 직장인 중심의 소개팅 매칭 서비스입니다. 성향 기반 빠른 매칭, 합리적인 가격, 높은 만족도를 제공합니다.">
+<meta property="og:title" content="내 님은 어디에 — 신청만 하면 다 알아서 해주는 소개팅" />
+<meta property="og:description" content="사진 없이 성향으로 만나는 1:1 소개팅. 외모도, 분위기도, 일정도 주인장이 직접 챙겨드려요." />
+<meta property="og:image" content="https://whereismynim.com/assets/og-image.jpg" />
+<meta property="og:url" content="https://whereismynim.com" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Open Graph (카카오톡, 인스타, 페북 미리보기) -->
-  <meta property="og:title" content="내님은 어디에 - 소개팅 매칭 서비스" />
-  <meta property="og:description" content="25~40세 직장인 중심의 소개팅 매칭. 빠르고 정확한 1:1 매칭으로 새로운 인연을 만들어보세요." />
-  <meta property="og:image" content="https://whereismynim.com/assets/og-image.jpg" />
-  <meta property="og:url" content="https://whereismynim.com" />
-  <meta property="og:type" content="website" />
+<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="내님은 어디에 - 소개팅 매칭 서비스" />
-  <meta name="twitter:description" content="성향 기반 소개팅 매칭 서비스. 지금 신청하고 새로운 인연을 만나보세요." />
-  <meta name="twitter:image" content="https://whereismynim.com/assets/og-image.jpg" />
+<style>
+  :root{
+    --coral-50:#FFF4F1;
+    --coral-100:#FFE4DC;
+    --coral-300:#FFB4A2;
+    --coral-500:#FF7A6B;
+    --coral-600:#F25A4A;
+    --coral-700:#D9402F;
+    --rose-500:#E94B7A;
+    --cream:#FFFAF6;
+    --ink:#1F1A1A;
+    --ink-2:#4A4444;
+    --ink-3:#7B7373;
+    --line:#F0E5DF;
+    --shadow:0 10px 30px rgba(255,90,74,0.10);
+    --shadow-lg:0 20px 50px rgba(31,26,26,0.08);
+    --radius:20px;
+    --radius-sm:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px}
 
-  <!-- 파비콘 -->
-  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  /* NAV */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,250,246,0.85);
+    backdrop-filter:saturate(180%) blur(16px);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:800;font-size:18px;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--coral-500)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2);font-weight:500}
+  .nav-links a:hover{color:var(--coral-600)}
+  .nav-cta{
+    background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;
+    font-size:13px;font-weight:600;transition:transform .15s ease, background .15s;
+  }
+  .nav-cta:hover{background:var(--coral-600);transform:translateY(-1px)}
+  @media(max-width:720px){.nav-links{display:none}}
 
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:84px 0 100px;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 16px;border-radius:999px;
+    background:#fff;border:1px solid var(--line);
+    font-size:13px;font-weight:600;color:var(--coral-700);
+    box-shadow:0 2px 8px rgba(255,90,74,0.08);
+  }
+  .badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--coral-500);box-shadow:0 0 0 0 rgba(255,122,107,.5);animation:pulse 2s infinite}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,122,107,.5)}
+    70%{box-shadow:0 0 0 10px rgba(255,122,107,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,122,107,0)}
+  }
+  .hero h1{
+    font-size:clamp(36px,5.4vw,64px);
+    line-height:1.15;letter-spacing:-0.03em;font-weight:800;
+    margin-top:22px;
+  }
+  .hero h1 .accent{
+    color:var(--coral-600);
+  }
+  .hero p.lead{
+    margin-top:20px;font-size:clamp(15px,1.6vw,18px);
+    color:var(--ink-2);max-width:560px;
+  }
+  .hero-ctas{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 24px;border-radius:14px;font-weight:600;font-size:15px;
+    border:1px solid transparent;cursor:pointer;transition:all .18s ease;
+  }
+  .btn-primary{
+    background:var(--coral-600);
+    color:#fff;box-shadow:var(--shadow);
+  }
+  .btn-primary:hover{background:var(--coral-700);transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,90,74,0.25)}
+  .btn-secondary{background:#fff;border-color:var(--line);color:var(--ink)}
+  .btn-secondary:hover{border-color:var(--coral-500);color:var(--coral-700)}
+  .btn-ghost{background:transparent;color:var(--ink-2)}
+  .btn-ghost:hover{color:var(--coral-700)}
 
-  <!-- 기존 빌드 파일 -->
-  <script type="module" crossorigin src="/assets/index-3CtPIdsY.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DWWJ8-O1.css">
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    margin-top:48px;max-width:560px;
+  }
+  .stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px}
+  .stat .v{font-size:24px;font-weight:800;letter-spacing:-0.02em;color:var(--coral-700)}
+  .stat .l{font-size:12px;color:var(--ink-3);margin-top:4px}
+
+  /* SECTION BASE */
+  section{padding:88px 0}
+  .section-head{text-align:center;margin-bottom:48px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;color:var(--coral-600);
+    text-transform:uppercase;letter-spacing:0.08em;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.2vw,40px);
+    font-weight:800;letter-spacing:-0.02em;margin-top:10px;
+  }
+  .section-head p{color:var(--ink-3);margin-top:10px;font-size:15px}
+
+  /* FEATURES */
+  .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:680px){.features-grid{grid-template-columns:1fr}}
+  .feature{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;transition:transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--coral-300)}
+  .feature .icon{
+    width:48px;height:48px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--coral-100);
+    font-size:24px;margin-bottom:18px;
+  }
+  .feature h3{font-size:18px;font-weight:700;letter-spacing:-0.01em}
+  .feature p{margin-top:8px;color:var(--ink-3);font-size:14.5px}
+
+  /* PROCESS */
+  .process{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:680px){.steps{grid-template-columns:1fr}}
+  .step{
+    position:relative;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius-sm);padding:26px 26px 24px;
+  }
+  .step .num{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--ink);color:#fff;font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+    position:absolute;top:-16px;left:24px;
+  }
+  .step .step-label{
+    display:inline-block;font-size:12px;font-weight:700;color:var(--coral-600);
+    letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;
+  }
+  .step h4{margin-top:6px;font-size:17px;font-weight:700;letter-spacing:-0.01em}
+  .step p{margin-top:8px;font-size:14px;color:var(--ink-2);line-height:1.6}
+  .step .inline-link{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    padding:8px 14px;border-radius:999px;
+    background:var(--coral-600);
+    color:#fff;font-size:13px;font-weight:600;
+  }
+  .step .inline-link:hover{background:var(--coral-700);transform:translateY(-1px)}
+  .step .note{
+    margin-top:14px;background:#FFF6F2;border:1px solid var(--coral-300);
+    border-radius:12px;padding:14px 16px;
+  }
+  .step .note .note-title{font-size:13px;font-weight:700;color:var(--coral-700);display:flex;align-items:center;gap:6px}
+  .step .note p{margin-top:6px;font-size:13px;color:var(--ink-2)}
+
+  /* ELIGIBILITY */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:820px){.two-col{grid-template-columns:1fr}}
+  .panel{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;
+  }
+  .panel h3{font-size:20px;font-weight:700;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
+  .panel ul{margin-top:18px;display:grid;gap:12px}
+  .panel li{padding-left:28px;position:relative;font-size:15px;color:var(--ink-2)}
+  .panel li::before{
+    content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border-radius:50%;
+    background:var(--coral-100);
+  }
+  .panel li::after{
+    content:"";position:absolute;left:5px;top:12px;width:6px;height:6px;border-radius:50%;
+    background:var(--coral-500);
+  }
+  .panel.warn li::before{background:#FFF1D6}
+  .panel.warn li::after{background:#E89B17}
+
+  /* FAQ */
+  .faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:18px 22px;transition:border-color .15s;
+  }
+  details[open]{border-color:var(--coral-300);box-shadow:var(--shadow)}
+  summary{
+    cursor:pointer;list-style:none;font-weight:600;font-size:15.5px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:"+";font-size:22px;font-weight:400;color:var(--coral-600);
+    transition:transform .2s;
+  }
+  details[open] summary::after{content:"−"}
+  details p{margin-top:12px;color:var(--ink-3);font-size:14.5px}
+
+  /* REVIEWS */
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.reviews-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.reviews-grid{grid-template-columns:1fr}}
+  .review{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;position:relative;
+  }
+  .review .stars{color:#F4B400;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+  .review .quote{font-size:15px;color:var(--ink-2);line-height:1.7}
+  .review .who{margin-top:18px;display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--line)}
+  .avatar{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--coral-500);
+    color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+  }
+  .who .meta{font-size:13px;color:var(--ink-3)}
+  .who .meta b{color:var(--ink);font-weight:600;display:block}
+
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.pricing-grid{grid-template-columns:1fr}}
+  .price-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px;position:relative;display:flex;flex-direction:column;
+  }
+  .price-card.featured{
+    background:#FFF6F2;
+    border-color:var(--coral-500);box-shadow:var(--shadow-lg);
+    transform:translateY(-8px);
+  }
+  @media(max-width:880px){.price-card.featured{transform:none}}
+  .price-card .tag{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+    background:var(--coral-600);color:#fff;
+    padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:0.04em;
+  }
+  .price-card h3{font-size:18px;font-weight:700}
+  .price-card .price{font-size:34px;font-weight:800;letter-spacing:-0.02em;margin-top:14px;line-height:1.1}
+  .price-card .price small{font-size:14px;font-weight:500;color:var(--ink-3)}
+  .price-card .price-was{display:block;font-size:15px;font-weight:500;color:var(--ink-3);text-decoration:line-through;margin-bottom:4px}
+  .price-card .desc{color:var(--ink-3);font-size:13.5px;margin-top:10px;line-height:1.55}
+  .price-card ul{margin-top:22px;display:grid;gap:10px;flex:1}
+  .price-card li{padding-left:24px;position:relative;font-size:14px;color:var(--ink-2)}
+  .price-card li::before{
+    content:"✓";position:absolute;left:0;color:var(--coral-600);font-weight:700;
+  }
+  .price-card .btn{margin-top:24px;width:100%;justify-content:center}
+
+  /* ELIGIBILITY TABLE */
+  .qual-table{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .qual-row{
+    display:grid;grid-template-columns:140px 1fr 1fr;
+    border-bottom:1px solid var(--line);
+  }
+  .qual-row:last-child{border-bottom:none}
+  .qual-row > div{padding:18px 22px;font-size:14.5px;color:var(--ink-2);display:flex;align-items:center}
+  .qual-row .label{font-weight:700;color:var(--ink);background:var(--cream)}
+  .qual-row .col-m{border-left:1px solid var(--line)}
+  .qual-row .col-f{border-left:1px solid var(--line);background:#FFF9F6}
+  .qual-row.head > div{font-weight:700;color:var(--ink);background:var(--cream);font-size:14px}
+  .qual-row.head .col-m,.qual-row.head .col-f{justify-content:center}
+  .qual-row .gender-tag{display:inline-flex;align-items:center;gap:8px}
+  .gender-dot{width:10px;height:10px;border-radius:50%}
+  .gender-dot.m{background:#4A90E2}
+  .gender-dot.f{background:var(--coral-500)}
+  @media(max-width:680px){
+    .qual-row{grid-template-columns:100px 1fr 1fr}
+    .qual-row > div{padding:14px 12px;font-size:13.5px}
+  }
+  .notice-box{
+    margin-top:24px;background:#FFF6F2;
+    border:1px solid var(--coral-300);border-radius:var(--radius);padding:24px 26px;
+  }
+  .notice-box h4{font-size:16px;font-weight:700;color:var(--coral-700);display:flex;align-items:center;gap:8px}
+  .notice-box p{margin-top:8px;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+
+  /* COMPARE */
+  .compare{margin-top:64px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px}
+  .compare-head{text-align:center;margin-bottom:28px}
+  .compare-head h3{font-size:22px;font-weight:700;letter-spacing:-0.01em}
+  .compare-head p{margin-top:8px;color:var(--ink-3);font-size:14px}
+  .compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.compare-grid{grid-template-columns:1fr}}
+  .compare-card{
+    background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:22px;text-align:center;position:relative;
+  }
+  .compare-card.highlight{
+    background:#FFF6F2;
+    border-color:var(--coral-500);
+  }
+  .compare-label{font-size:14px;font-weight:700;color:var(--ink)}
+  .compare-sub{font-size:12.5px;color:var(--ink-3);margin-top:4px}
+  .compare-price{margin-top:16px;font-size:18px;font-weight:700;color:var(--coral-700)}
+  .compare-price.muted{color:var(--ink-3);font-weight:600}
+  .compare-price b{font-weight:800}
+  .compare-tag{
+    margin-top:10px;display:inline-block;padding:4px 10px;border-radius:999px;
+    background:var(--coral-500);color:#fff;font-size:12px;font-weight:700;
+  }
+
+  /* REFUND */
+  .refund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.refund-grid{grid-template-columns:1fr}}
+  .refund-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;transition:transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .refund-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--coral-300)}
+  .refund-card .icon-circle{
+    width:44px;height:44px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--coral-100);
+    font-size:22px;margin-bottom:18px;
+  }
+  .refund-card h3{font-size:17px;font-weight:700;letter-spacing:-0.01em}
+  .refund-card p{margin-top:10px;font-size:14px;color:var(--ink-3);line-height:1.65}
+  .refund-checklist{
+    margin-top:32px;background:#fff;border:1px solid var(--coral-300);border-radius:var(--radius);
+    padding:28px 30px;
+  }
+  .refund-checklist h4{font-size:16px;font-weight:700;color:var(--coral-700);display:flex;align-items:center;gap:8px}
+  .refund-checklist ul{margin-top:14px;display:grid;gap:10px}
+  .refund-checklist li{padding-left:26px;position:relative;font-size:14.5px;color:var(--ink-2)}
+  .refund-checklist li::before{
+    content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:50%;
+    background:var(--coral-100);
+  }
+  .refund-checklist li::after{
+    content:"";position:absolute;left:4px;top:12px;width:6px;height:6px;border-radius:50%;
+    background:var(--coral-500);
+  }
+
+  /* FINAL CTA */
+  .final-cta{
+    background:var(--coral-600);
+    color:#fff;text-align:center;padding:80px 24px;border-radius:32px;
+    margin:40px 24px;position:relative;overflow:hidden;
+  }
+  .final-cta::before,.final-cta::after{
+    content:"";position:absolute;border-radius:50%;
+    background:rgba(255,255,255,0.08);
+  }
+  .final-cta::before{width:280px;height:280px;top:-100px;left:-80px}
+  .final-cta::after{width:220px;height:220px;bottom:-80px;right:-60px}
+  .final-cta-inner{position:relative;z-index:2;max-width:680px;margin:0 auto}
+  .final-cta h2{font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-0.02em;line-height:1.2}
+  .final-cta p{margin-top:14px;opacity:0.92;font-size:16px}
+  .final-cta .btn{margin-top:32px;background:#fff;color:var(--coral-700)}
+  .final-cta .btn:hover{background:var(--ink);color:#fff}
+
+  /* FOOTER */
+  footer{background:#fff;border-top:1px solid var(--line);padding:60px 0 32px;color:var(--ink-3);font-size:14px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  @media(max-width:720px){.footer-grid{grid-template-columns:1fr;gap:32px}}
+  .footer-brand h4{color:var(--ink);font-size:18px;font-weight:800;letter-spacing:-0.02em}
+  .footer-brand p{margin-top:8px;font-size:14px;max-width:340px}
+  .footer-col h5{color:var(--ink);font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .footer-col a{display:block;margin-bottom:10px;color:var(--ink-3);transition:color .15s}
+  .footer-col a:hover{color:var(--coral-600)}
+  .footer-bottom{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12.5px}
+  .biz-info{
+    font-size:12.5px;line-height:1.7;margin-top:24px;padding-top:20px;
+    border-top:1px solid var(--line);color:var(--ink-3);text-align:center;
+  }
+  .biz-info .sep{margin:0 8px;color:var(--line)}
+
+  /* FLOATING CTA */
+  .float-cta{
+    position:fixed;right:20px;bottom:20px;z-index:40;
+    display:flex;flex-direction:column;gap:10px;align-items:flex-end;
+  }
+  .float-btn{
+    display:flex;align-items:center;gap:10px;padding:14px 20px;
+    border-radius:999px;font-weight:600;font-size:14px;
+    background:#fff;border:1px solid var(--line);color:var(--ink);
+    box-shadow:var(--shadow-lg);transition:transform .15s ease;
+  }
+  .float-btn:hover{transform:translateY(-2px)}
+  .float-btn.primary{
+    background:var(--coral-600);
+    color:#fff;border-color:transparent;
+  }
+  .float-btn.primary:hover{background:var(--coral-700)}
+  @media(max-width:560px){
+    .float-cta{left:16px;right:16px;bottom:16px;flex-direction:row;justify-content:center}
+    .float-btn{flex:1;justify-content:center;padding:12px 14px;font-size:13px}
+  }
+
+  /* fade-in */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
 </head>
-
 <body>
-  <div id="root"></div>
-</body>
 
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo"><span class="dot"></span> 내 님은 어디에</a>
+    <div class="nav-links">
+      <a href="#features">서비스</a>
+      <a href="#process">진행 방식</a>
+      <a href="#pricing">요금</a>
+      <a href="#faq">FAQ</a>
+      <a href="#reviews">후기</a>
+    </div>
+    <a class="nav-cta" href="https://naver.me/FiohMXZK" target="_blank" rel="noopener">지금 신청</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="badge"><span class="pulse"></span> 신뢰할 수 있는 소개팅 플랫폼</span>
+    <h1>신청만 하면<br/><span class="accent">다 알아서 해주는 소개팅</span></h1>
+    <p class="lead">사진 대신, 성향으로 만나요. 외모를 안 보는 건 아니에요. 주인장이 두 분의 분위기까지 살펴서 어울리는 분으로 직접 매칭해드립니다. 식당 예약, 시간 조율, 정산까지 도와드려요. 신청 한 번이면 끝나요.</p>
+    <div class="hero-ctas">
+      <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener" class="btn btn-primary">💌 지금 바로 신청하기</a>
+      <a href="#features" class="btn btn-secondary">자세히 알아보기 →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="v">성향</div><div class="l">사진 없이 매칭해요</div></div>
+      <div class="stat"><div class="v">1:1</div><div class="l">주인장이 직접</div></div>
+      <div class="stat"><div class="v">1개월</div><div class="l">평균 매칭 소요</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">🎯 서비스 차별점</div>
+      <h2>신청만 하면, 나머지는 주인장이 알아서 합니다</h2>
+      <p>시간, 장소, 매칭, 정산까지. 고민할 필요 없습니다.<br/>신청만 해두면, 주인장이 모든 걸 정성스럽게 준비합니다.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="icon">💝</div>
+        <h3>외모보다 성향 중심 매칭</h3>
+        <p>일반적인 소개팅은 사진부터 보죠. 하지만 우리는 다릅니다. 취향, 말투, 가치관 같은 내면의 조각으로 진짜 잘 맞는 사람을 찾아드립니다.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="icon">🛡️</div>
+        <h3>신뢰할 수 있는 검증된 사람들만</h3>
+        <p>모든 신청서는 꼼꼼히 검토합니다. 그래서 더 안전하고, 더 믿을 수 있어요.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="icon">☕</div>
+        <h3>결과보다 '과정'이 유쾌한 소개팅</h3>
+        <p>어색하지 않은 만남, 배려 있고 자연스러운 분위기. 조용한 식당에서 서로의 이야기에 집중할 수 있습니다.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="icon">📊</div>
+        <h3>피드백 리포트 제공</h3>
+        <p>3~5회 이상 참여하신 분께는 상대방으로부터 받은 피드백을 리포트로 정리해드립니다. 나도 몰랐던 내 매력을 객관적으로 돌아볼 수 있어요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">🧾 진행 방식</div>
+      <h2>신청부터 매칭까지의 전체 과정</h2>
+      <p>복잡한 절차는 없습니다. 8단계로 깔끔하게 진행됩니다.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <span class="step-label">Step 1</span>
+        <h4>신청서 작성</h4>
+        <p>간단한 성향 설문을 작성해주세요. (성격, 연애 스타일, 취미 등)</p>
+        <a class="inline-link" href="https://naver.me/FiohMXZK" target="_blank" rel="noopener">👉 신청 링크</a>
+      </div>
+      <div class="step reveal">
+        <div class="num">2</div>
+        <span class="step-label">Step 2</span>
+        <h4>매칭 진행</h4>
+        <p>주인장이 직접 성향을 분석하고 1:1 매칭을 진행합니다. (최대 3개월 소요, 평균 1개월 · 카카오톡으로 연락드립니다)</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">3</div>
+        <span class="step-label">Step 3</span>
+        <h4>매칭 확정 & 결제</h4>
+        <p>매칭 확정 후 예약금 및 매칭권 결제를 진행합니다. 결제 확인 후 일정 조율이 시작돼요. (예약금은 만남 후 전액 환불)</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">4</div>
+        <span class="step-label">Step 4</span>
+        <h4>장소 / 시간 안내</h4>
+        <p>주인장이 두 분의 거리, 성향, 취향을 고려해 식당과 시간을 직접 정해드립니다.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">5</div>
+        <span class="step-label">Step 5</span>
+        <h4>만남 전날 기본 정보 전달</h4>
+        <p>성함 / 나이 / 직업군 / 취미 / 한 줄 소개 등. 사진 없이 성향 기반으로 만납니다.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">6</div>
+        <span class="step-label">Step 6</span>
+        <h4>소개팅 진행</h4>
+        <p>남성분이 식사비를 결제합니다. (2차, 3차 등 모두 남성분이 결제 후 다음날 더치페이 정산 도와드립니다)</p>
+        <div class="note">
+          <div class="note-title">📵 중요 · 만남 중 번호 교환 금지</div>
+          <p>번호 교환을 요청하면 상대가 부담을 느껴 거절을 못하는 상황이 생길 수 있다는 걸 잘 알고 있어요. 그래서 만남 후 주인장이 양쪽의 의사를 확인한 뒤, '서로 원할 때'만 연락처를 전달해드리는 방식으로 운영됩니다.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="num">7</div>
+        <span class="step-label">Step 7</span>
+        <h4>만남 후 피드백 & 리포트</h4>
+        <p>다음 날 주인장이 피드백을 요청드리고 번호 교환 여부를 확인합니다. 서로 번호 교환 의사가 있을 경우, 연락처를 교환해드립니다. 식사 비용 더치페이 정산도 진행해요.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">8</div>
+        <span class="step-label">Step 8</span>
+        <h4>재매칭 안내</h4>
+        <p>한쪽만 번호 교환을 원하거나, 매칭이 성사되지 않은 경우 새로운 매칭이 가능합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="eligibility">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">📝 신청 자격 및 조건</div>
+      <h2>참여 가능한 분들의 기준</h2>
+    </div>
+    <div class="qual-table reveal">
+      <div class="qual-row head">
+        <div>구분</div>
+        <div class="col-m"><span class="gender-tag"><span class="gender-dot m"></span> 남자</span></div>
+        <div class="col-f"><span class="gender-tag"><span class="gender-dot f"></span> 여자</span></div>
+      </div>
+      <div class="qual-row">
+        <div class="label">년생</div>
+        <div class="col-m">1980년생 ~ 2000년생</div>
+        <div class="col-f">1982년생 ~ 2002년생</div>
+      </div>
+      <div class="qual-row">
+        <div class="label">키</div>
+        <div class="col-m">170cm 이상</div>
+        <div class="col-f">150cm 이상</div>
+      </div>
+      <div class="qual-row">
+        <div class="label">직업</div>
+        <div class="col-m">직장인, 사업가</div>
+        <div class="col-f">직장인, 사업가, 대학생</div>
+      </div>
+      <div class="qual-row">
+        <div class="label">학력</div>
+        <div class="col-m">고졸 이상</div>
+        <div class="col-f">고졸 이상</div>
+      </div>
+    </div>
+
+    <div class="notice-box reveal">
+      <h4>📝 중요 안내 · 프로필 정보의 성실한 기재</h4>
+      <p>매칭의 핵심은 '정확한 정보'입니다. 나이, 키, 직업, 성격 등을 허위 없이 작성해 주세요.</p>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:#fff;border-top:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">✨ 실제 후기</div>
+      <h2>이용자들의 생생한 경험담</h2>
+      <p>실제 매칭에 성공하신 분들이 남겨주신 후기입니다.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review reveal">
+        <p class="quote">"일반 소개팅은 사전에 연락하면서 어색하기도 하고 힘이 빠질 때도 있는데 식당도 다 알아봐주고 일정도 조율해주셔서 너무 좋았습니다."</p>
+        <div class="who"><div class="avatar">A</div><div class="meta"><b>A · 여 32세</b>부산 / 공무원</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"소개팅 방식 너무 좋았어요! 진짜 주인장님이 알아서 다 해주셔서 너무 좋았어요"</p>
+        <div class="who"><div class="avatar">B</div><div class="meta"><b>B · 남 29세</b>서울 / 개발자</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"시스템이 매우 깔끔한 것 같습니다. 제가 해야되는 건 정보 입력과 소개팅 참석 외엔 거의 없다는 점이 편했고 감사드립니다"</p>
+        <div class="who"><div class="avatar">C</div><div class="meta"><b>C · 여 28세</b>인천 / 마케터</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"소개팅과 데이팅 앱의 장점만 모은것 같아요. 식사 장소 예약이나 연락처 교환까지 모두 대신 진행해주셔서 감사했습니다! 굉장히 만족해요"</p>
+        <div class="who"><div class="avatar">D</div><div class="meta"><b>D · 남 31세</b>서울 / 디자이너</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"성향 기반 매칭이라 처음엔 걱정했는데, 실제로 만나보니 대화가 정말 잘 통했어요. 주인장님이 세심하게 신경 써주셔서 편안한 분위기에서 만날 수 있었습니다."</p>
+        <div class="who"><div class="avatar">E</div><div class="meta"><b>E · 여 30세</b>경기 / 교사</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"다른 소개팅 앱들은 직접 연락하고 장소 정하는 게 부담스러웠는데, 여기는 그런 스트레스가 전혀 없어요. 편하게 만날 수 있었습니다."</p>
+        <div class="who"><div class="avatar">F</div><div class="meta"><b>F · 남 33세</b>서울 / 회사원</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"주인장님의 매칭 능력이 정말 뛰어나세요. 제 성향을 정확히 파악하고 잘 맞는 분을 소개해주셨어요. 다시 신청하고 싶습니다!"</p>
+        <div class="who"><div class="avatar">G</div><div class="meta"><b>G · 여 27세</b>대구 / 간호사</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"소개팅 경험이 많지 않아서 걱정했는데, 전 과정이 체계적이고 편안했어요. 특히 피드백 시스템이 좋았습니다."</p>
+        <div class="who"><div class="avatar">H</div><div class="meta"><b>H · 남 35세</b>서울 / 금융업종사</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"중간에서 식당이랑 시간까지 조율해주셔서 너무 편했던것 같습니다"</p>
+        <div class="who"><div class="avatar">I</div><div class="meta"><b>I · 여 29세</b>광주 / 약사</div></div>
+      </div>
+      <div class="review reveal">
+        <p class="quote">"제가 따로 연락 주고받으며 소개팅을 위해 준비하지 않아도 좋은 장소로 대신 예약해주셔서 정말 좋았어요!"</p>
+        <div class="who"><div class="avatar">J</div><div class="meta"><b>J · 남 34세</b>수원 / 회사원</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">💰 요금제 안내</div>
+      <h2>합리적인 가격으로 진심 어린 만남을 경험하세요</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>기본 매칭 1회</h3>
+        <div class="price">50,000<small>원</small></div>
+        <div class="desc">주인장이 성향보고 1:1 매칭해드려요</div>
+        <ul>
+          <li>성향 기반 1:1 매칭</li>
+          <li>식당 예약 대행</li>
+          <li>장소 및 시간 조율</li>
+          <li>만남 후 피드백 수집</li>
+        </ul>
+        <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener" class="btn btn-secondary">신청하기</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <span class="tag">가장 인기</span>
+        <h3>기본 매칭 3회</h3>
+        <div class="price"><span class="price-was">150,000원</span>130,000<small>원</small></div>
+        <div class="desc">3회 신청 시 20,000원 할인</div>
+        <ul>
+          <li>성향 기반 1:1 매칭 3회</li>
+          <li>식당 예약 대행</li>
+          <li>장소 및 시간 조율</li>
+          <li>만남 후 피드백 수집</li>
+          <li>피드백 리포트 제공 가능</li>
+        </ul>
+        <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener" class="btn btn-primary">신청하기</a>
+      </div>
+
+      <div class="price-card reveal">
+        <h3>친구랑 할인 (2인)</h3>
+        <div class="price"><span class="price-was">100,000원</span>80,000<small>원</small></div>
+        <div class="desc">친구랑 같이 신청하면, 기본매칭 1회 한 명당 40,000원!</div>
+        <ul>
+          <li>2인 동시 신청 시 적용</li>
+          <li>각각 성향 기반 매칭</li>
+          <li>식당 예약 대행</li>
+          <li>개별 일정 조율</li>
+          <li>최소 1인은 신규등록 시 적용</li>
+        </ul>
+        <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener" class="btn btn-secondary">신청하기</a>
+      </div>
+    </div>
+
+    <!-- 가격 경쟁력 비교 -->
+    <div class="compare reveal">
+      <div class="compare-head">
+        <h3>다른 곳과의 가격 경쟁력</h3>
+        <p>합리적인 가격으로 더 나은 서비스를 제공합니다</p>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-label">일반 소개팅 플랫폼 / 어플</div>
+          <div class="compare-sub">타사 평균 가격</div>
+          <div class="compare-price muted">1회당 10만원 이상</div>
+        </div>
+        <div class="compare-card">
+          <div class="compare-label">오프라인 중개소 / 결혼 정보 회사</div>
+          <div class="compare-sub">타사 평균 가격</div>
+          <div class="compare-price muted">수십, 수백만 원 단위</div>
+        </div>
+        <div class="compare-card highlight">
+          <div class="compare-label">내 님은 어디에</div>
+          <div class="compare-sub">합리적인 가격, 높은 만족도</div>
+          <div class="compare-price">기본 매칭 1회 <b>50,000원</b></div>
+          <div class="compare-tag">최대 74% 저렴</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="refund">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">🔄 환불 정책</div>
+      <h2>환불 정책 안내</h2>
+    </div>
+    <div class="refund-grid">
+      <div class="refund-card reveal">
+        <div class="icon-circle">💸</div>
+        <h3>환불 시 정상가 적용</h3>
+        <p>환불 시에는 정상가(1회 50,000원 기준)로 정산됩니다. 즉, 환불 시에는 할인 혜택이 적용되지 않으며, 사용하신 횟수는 정상가 기준으로 계산됩니다.</p>
+      </div>
+      <div class="refund-card reveal">
+        <div class="icon-circle">🍽️</div>
+        <h3>식당 예약 후 환불 불가</h3>
+        <p>식당 예약이 이미 진행된 경우, 예약금 환불이 어렵습니다. 신청 전 일정과 참여 의사를 꼭 확인해 주세요.</p>
+      </div>
+      <div class="refund-card reveal">
+        <div class="icon-circle">♻️</div>
+        <h3>지인 매칭 시 재매칭 보장</h3>
+        <p>혹시 예상치 못하게 지인이 매칭 상대가 된 경우, 동일 조건으로 1회 재매칭을 보장해드립니다. 안심하고 신청해주세요. (지인의 지인은 재매칭 불가)</p>
+      </div>
+    </div>
+
+    <div class="refund-checklist reveal">
+      <h4>⚠️ 환불 신청 전 꼭 확인하세요</h4>
+      <ul>
+        <li>할인받으신 경우, 환불 시 정상가 기준으로 계산됩니다</li>
+        <li>식당 예약이 완료된 이후에는 예약금 환불이 불가능합니다</li>
+        <li>지인과의 매칭인 경우에만 재매칭이 보장됩니다</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff;border-top:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">💬 자주 묻는 질문</div>
+      <h2>궁금한 점을 해결하세요</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>Q. 얼굴도 안 보고 만나나요?</summary><p>네, 사진 없이 성향만으로 매칭됩니다. 그래서 더 진심이 통한다는 후기가 많아요! 외모를 완전히 배제한 만남은 아니지만, 사진은 언제나 실물과 다를 수밖에 없어 실망을 안겨주는게 뻔하기 때문에 우리는 사진 대신 관심사, 성향 같은 내적인 요소로 서로를 미리 떠올려보는 방식을 선택했어요.</p></details>
+      <details class="reveal"><summary>Q. 누구랑 매칭되나요?</summary><p>신청서에 쓴 취향과 성향을 기반으로, 주인장이 직접 매칭하고 있어요.</p></details>
+      <details class="reveal"><summary>Q. 번호 교환은 언제 하나요?</summary><p>만남 이후, 서로 교환 의사가 있는 경우에만 공유됩니다.</p></details>
+      <details class="reveal"><summary>Q. 식사비 정산은 어떻게 하나요?</summary><p>만남 당일에는 남성분이 먼저 결제해 주시고, 2차나 3차를 가셨더라도 다음날 영수증을 주인장에게 보내주시면 더치페이 정산을 도와드립니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="final-cta reveal" id="apply">
+  <div class="final-cta-inner">
+    <h2>지금 가장 잘 맞는 인연을 만나보세요</h2>
+    <p>망설일 시간에 한 번 신청해보세요. 만남까지 우리가 모두 책임집니다.</p>
+    <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener" class="btn">💌 지금 바로 신청하기</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>내 님은 어디에</h4>
+        <p>바쁜 현대인을 위한, 가장 신뢰할 수 있는 소개팅 매칭 서비스.</p>
+      </div>
+      <div class="footer-col">
+        <h5>빠른 링크</h5>
+        <a href="#features">서비스 소개</a>
+        <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener">신청하기</a>
+        <a href="#faq">자주 묻는 질문</a>
+      </div>
+      <div class="footer-col">
+        <h5>소셜 & 문의</h5>
+        <a href="https://instagram.com/where_is_my_nim" target="_blank" rel="noopener">@where_is_my_nim</a>
+        <a href="#">카카오톡 문의하기</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 내 님은 어디에. All rights reserved.</div>
+      <div>이 서비스는 매칭 외 목적으로 정보를 보관·이용하지 않습니다.</div>
+    </div>
+    <div class="biz-info">
+      상호: 사이다커넥트<span class="sep">|</span>대표자: 석승욱<span class="sep">|</span>사업자등록번호: 779-14-02663
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
 </html>
