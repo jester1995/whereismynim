@@ -62,7 +62,7 @@
   }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
   .logo{font-weight:800;font-size:18px;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px}
-  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--coral-500)}
+  .logo .logo-heart{width:18px;height:18px;color:var(--coral-500);flex-shrink:0}
   .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2);font-weight:500}
   .nav-links a:hover{color:var(--coral-600)}
   .nav-cta{
@@ -434,7 +434,10 @@
 
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="#" class="logo"><span class="dot"></span> 내 님은 어디에</a>
+    <a href="#" class="logo">
+      <svg class="logo-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/></svg>
+      내 님은 어디에
+    </a>
     <div class="nav-links">
       <a href="#features">서비스</a>
       <a href="#process">진행 방식</a>
