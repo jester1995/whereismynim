@@ -252,7 +252,8 @@
   .who .meta b{color:var(--ink);font-weight:600;display:block}
 
   /* PRICING */
-  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:1080px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:880px){.pricing-grid{grid-template-columns:1fr}}
   .price-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
@@ -477,7 +478,7 @@
       <div class="feature reveal">
         <div class="icon">💝</div>
         <h3>외모보다 성향 중심 매칭</h3>
-        <p>일반적인 소개팅은 사진부터 보죠. 하지만 우리는 다릅니다. 취향, 말투, 가치관 같은 내면의 조각으로 진짜 잘 맞는 사람을 찾아드립니다.</p>
+        <p>일반적인 소개팅은 사진부터 보죠. 하지만 우리는 다릅니다. 취향, 말투, 가치관 같은 내면이 잘 맞는 사람과 진짜 인연을 찾아드립니다.</p>
       </div>
       <div class="feature reveal">
         <div class="icon">🛡️</div>
@@ -523,7 +524,7 @@
         <div class="num">3</div>
         <span class="step-label">Step 3</span>
         <h4>매칭 확정 & 결제</h4>
-        <p>매칭 확정 후 예약금 및 매칭권 결제를 진행합니다. 결제 확인 후 일정 조율이 시작돼요. (예약금은 만남 후 전액 환불)</p>
+        <p>매칭 확정 후 예약금 및 매칭권 결제를 진행합니다. 결제 확인 후 일정 조율이 시작돼요. (예약금은 식사 정산용 선입금 — 만남에 참석하면 100% 환불)</p>
       </div>
       <div class="step reveal">
         <div class="num">4</div>
@@ -659,7 +660,7 @@
     <div class="pricing-grid">
       <div class="price-card reveal">
         <h3>기본 매칭 1회</h3>
-        <div class="price">50,000<small>원</small></div>
+        <div class="price">70,000<small>원</small></div>
         <div class="desc">주인장이 성향보고 1:1 매칭해드려요</div>
         <ul>
           <li>성향 기반 1:1 매칭</li>
@@ -670,13 +671,27 @@
         <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener" class="btn btn-secondary">신청하기</a>
       </div>
 
-      <div class="price-card featured reveal">
-        <span class="tag">가장 인기</span>
+      <div class="price-card reveal">
         <h3>기본 매칭 3회</h3>
-        <div class="price"><span class="price-was">150,000원</span>130,000<small>원</small></div>
-        <div class="desc">3회 신청 시 20,000원 할인</div>
+        <div class="price"><span class="price-was">210,000원</span>180,000<small>원</small></div>
+        <div class="desc">3회 신청 시 30,000원 할인</div>
         <ul>
           <li>성향 기반 1:1 매칭 3회</li>
+          <li>식당 예약 대행</li>
+          <li>장소 및 시간 조율</li>
+          <li>만남 후 피드백 수집</li>
+          <li>피드백 리포트 제공 가능</li>
+        </ul>
+        <a href="https://naver.me/FiohMXZK" target="_blank" rel="noopener" class="btn btn-secondary">신청하기</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <span class="tag">가장 인기</span>
+        <h3>기본 매칭 5회</h3>
+        <div class="price"><span class="price-was">350,000원</span>250,000<small>원</small></div>
+        <div class="desc">5회 신청 시 100,000원 할인</div>
+        <ul>
+          <li>성향 기반 1:1 매칭 5회</li>
           <li>식당 예약 대행</li>
           <li>장소 및 시간 조율</li>
           <li>만남 후 피드백 수집</li>
@@ -687,8 +702,8 @@
 
       <div class="price-card reveal">
         <h3>친구랑 할인 (2인)</h3>
-        <div class="price"><span class="price-was">100,000원</span>80,000<small>원</small></div>
-        <div class="desc">친구랑 같이 신청하면, 기본매칭 1회 한 명당 40,000원!</div>
+        <div class="price"><span class="price-was">140,000원</span>120,000<small>원</small></div>
+        <div class="desc">친구랑 같이 신청하면, 기본매칭 1회 한 명당 60,000원!</div>
         <ul>
           <li>2인 동시 신청 시 적용</li>
           <li>각각 성향 기반 매칭</li>
@@ -720,8 +735,7 @@
         <div class="compare-card highlight">
           <div class="compare-label">내 님은 어디에</div>
           <div class="compare-sub">합리적인 가격, 높은 만족도</div>
-          <div class="compare-price">기본 매칭 1회 <b>50,000원</b></div>
-          <div class="compare-tag">최대 74% 저렴</div>
+          <div class="compare-price">회당 <b>50,000원</b> (5회 이용 시)</div>
         </div>
       </div>
     </div>
@@ -737,13 +751,13 @@
     <div class="refund-grid">
       <div class="refund-card reveal">
         <div class="icon-circle">💸</div>
-        <h3>환불 시 정상가 적용</h3>
-        <p>환불 시에는 정상가(1회 50,000원 기준)로 정산됩니다. 즉, 환불 시에는 할인 혜택이 적용되지 않으며, 사용하신 횟수는 정상가 기준으로 계산됩니다.</p>
+        <h3>매칭권 해지 시 위약금 20%</h3>
+        <p>중도 해지 시 이미 이용하신 횟수는 정가(1회 70,000원)로 빼고, 남은 금액에서 위약금 20%를 제외하고 환급해드려요. 할인은 전체를 다 이용하셨을 때 드리는 혜택이라, 중도 해지 시엔 정가로 계산됩니다.</p>
       </div>
       <div class="refund-card reveal">
         <div class="icon-circle">🍽️</div>
-        <h3>식당 예약 후 환불 불가</h3>
-        <p>식당 예약이 이미 진행된 경우, 예약금 환불이 어렵습니다. 신청 전 일정과 참여 의사를 꼭 확인해 주세요.</p>
+        <h3>예약금은 만남 참석 시 100% 환불</h3>
+        <p>예약금은 식사 정산을 위해 미리 받아두는 금액이에요. 만남에 참석하시면 전액 100% 돌려드리고, 참석하지 않으시면 환불이 어렵습니다.</p>
       </div>
       <div class="refund-card reveal">
         <div class="icon-circle">♻️</div>
@@ -755,8 +769,10 @@
     <div class="refund-checklist reveal">
       <h4>⚠️ 환불 신청 전 꼭 확인하세요</h4>
       <ul>
-        <li>할인받으신 경우, 환불 시 정상가 기준으로 계산됩니다</li>
-        <li>식당 예약이 완료된 이후에는 예약금 환불이 불가능합니다</li>
+        <li>매칭권은 서비스 개시 후 해지 시 위약금 20%가 부과돼요</li>
+        <li>이용하신 횟수는 정가(1회 70,000원)로 공제하고, 남은 금액에서 위약금 20%를 뺀 금액이 환급됩니다</li>
+        <li>예) 3회권 180,000원에서 1회 이용 후 해지 → (180,000 − 70,000) × 80% = 88,000원 환급</li>
+        <li>예약금은 만남에 참석하면 100% 환불, 불참 시 환불이 불가능합니다</li>
         <li>지인과의 매칭인 경우에만 재매칭이 보장됩니다</li>
       </ul>
     </div>
