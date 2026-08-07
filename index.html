@@ -274,6 +274,15 @@
   .price-card .price{font-size:34px;font-weight:800;letter-spacing:-0.02em;margin-top:14px;line-height:1.1}
   .price-card .price small{font-size:14px;font-weight:500;color:var(--ink-3)}
   .price-card .price-was{display:block;font-size:15px;font-weight:500;color:var(--ink-3);text-decoration:line-through;margin-bottom:4px}
+  .price-genders{margin-top:14px;display:grid;gap:10px}
+  .pg-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .pg-label{font-size:11px;font-weight:700;color:#fff;border-radius:999px;padding:3px 10px;flex-shrink:0}
+  .pg-label.m{background:var(--ink)}
+  .pg-label.f{background:var(--coral-500)}
+  .pg-prices{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+  .pg-was{font-size:13px;font-weight:500;color:var(--ink-3);text-decoration:line-through}
+  .pg-now{font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--ink);line-height:1.1}
+  .pg-now small{font-size:12px;font-weight:500;color:var(--ink-3)}
   .price-card .desc{color:var(--ink-3);font-size:13.5px;margin-top:10px;line-height:1.55}
   .price-card ul{margin-top:22px;display:grid;gap:10px;flex:1}
   .price-card li{padding-left:24px;position:relative;font-size:14px;color:var(--ink-2)}
@@ -660,7 +669,10 @@
     <div class="pricing-grid">
       <div class="price-card reveal">
         <h3>기본 매칭 1회</h3>
-        <div class="price">80,000<small>원</small></div>
+        <div class="price-genders">
+          <div class="pg-row"><span class="pg-label m">남성</span><span class="pg-prices"><span class="pg-now">80,000<small>원</small></span></span></div>
+          <div class="pg-row"><span class="pg-label f">여성</span><span class="pg-prices"><span class="pg-now">50,000<small>원</small></span></span></div>
+        </div>
         <div class="desc">주인장이 성향보고 1:1 매칭해드려요</div>
         <ul>
           <li>성향 기반 1:1 매칭</li>
@@ -673,8 +685,11 @@
 
       <div class="price-card reveal">
         <h3>기본 매칭 3회</h3>
-        <div class="price"><span class="price-was">240,000원</span>180,000<small>원</small></div>
-        <div class="desc">3회 신청 시 60,000원 할인</div>
+        <div class="price-genders">
+          <div class="pg-row"><span class="pg-label m">남성</span><span class="pg-prices"><span class="pg-now">180,000<small>원</small></span></span></div>
+          <div class="pg-row"><span class="pg-label f">여성</span><span class="pg-prices"><span class="pg-now">130,000<small>원</small></span></span></div>
+        </div>
+        <div class="desc">자주 만나고 싶다면, 3회 패키지</div>
         <ul>
           <li>성향 기반 1:1 매칭 3회</li>
           <li>식당 예약 대행</li>
@@ -688,8 +703,11 @@
       <div class="price-card featured reveal">
         <span class="tag">가장 인기</span>
         <h3>기본 매칭 5회</h3>
-        <div class="price"><span class="price-was">400,000원</span>250,000<small>원</small></div>
-        <div class="desc">5회 신청 시 150,000원 할인</div>
+        <div class="price-genders">
+          <div class="pg-row"><span class="pg-label m">남성</span><span class="pg-prices"><span class="pg-now">250,000<small>원</small></span></span></div>
+          <div class="pg-row"><span class="pg-label f">여성</span><span class="pg-prices"><span class="pg-now">200,000<small>원</small></span></span></div>
+        </div>
+        <div class="desc">가장 많이 선택하는 5회 패키지</div>
         <ul>
           <li>성향 기반 1:1 매칭 5회</li>
           <li>식당 예약 대행</li>
@@ -702,8 +720,11 @@
 
       <div class="price-card reveal">
         <h3>친구랑 할인 (2인)</h3>
-        <div class="price"><span class="price-was">160,000원</span>140,000<small>원</small></div>
-        <div class="desc">친구랑 같이 신청하면, 기본매칭 1회 한 명당 70,000원!</div>
+        <div class="price-genders">
+          <div class="pg-row"><span class="pg-label m">남성</span><span class="pg-prices"><span class="pg-now">140,000<small>원</small></span></span></div>
+          <div class="pg-row"><span class="pg-label f">여성</span><span class="pg-prices"><span class="pg-now">80,000<small>원</small></span></span></div>
+        </div>
+        <div class="desc">2인 동시 신청가 · 한 명당 남 70,000 / 여 40,000원</div>
         <ul>
           <li>2인 동시 신청 시 적용</li>
           <li>각각 성향 기반 매칭</li>
@@ -735,7 +756,7 @@
         <div class="compare-card highlight">
           <div class="compare-label">내 님은 어디에</div>
           <div class="compare-sub">합리적인 가격, 높은 만족도</div>
-          <div class="compare-price">회당 <b>50,000원</b> (5회 이용 시)</div>
+          <div class="compare-price">5회 기준 회당 남 <b>50,000</b> · 여 <b>40,000원</b></div>
         </div>
       </div>
     </div>
@@ -752,7 +773,7 @@
       <div class="refund-card reveal">
         <div class="icon-circle">💸</div>
         <h3>매칭권 해지 시 위약금 20%</h3>
-        <p>중도 해지 시 이미 이용하신 횟수는 정가(1회 80,000원)로 빼고, 남은 금액에서 위약금 20%를 제외하고 환급해드려요. 할인은 전체를 다 이용하셨을 때 드리는 혜택이라, 중도 해지 시엔 정가로 계산됩니다.</p>
+        <p>중도 해지 시 이미 이용하신 횟수는 정가(남 80,000원 / 여 50,000원)로 빼고, 남은 금액에서 위약금 20%를 제외하고 환급해드려요. 할인은 전체를 다 이용하셨을 때 드리는 혜택이라, 중도 해지 시엔 정가로 계산됩니다.</p>
       </div>
       <div class="refund-card reveal">
         <div class="icon-circle">🍽️</div>
@@ -770,8 +791,9 @@
       <h4>⚠️ 환불 신청 전 꼭 확인하세요</h4>
       <ul>
         <li>매칭권은 서비스 개시 후 해지 시 위약금 20%가 부과돼요</li>
-        <li>이용하신 횟수는 정가(1회 80,000원)로 공제하고, 남은 금액에서 위약금 20%를 뺀 금액이 환급됩니다</li>
-        <li>예) 3회권 180,000원에서 1회 이용 후 해지 → (180,000 − 80,000) × 80% = 80,000원 환급</li>
+        <li>이용하신 횟수는 정가(남 80,000원 / 여 50,000원)로 공제하고, 남은 금액에서 위약금 20%를 뺀 금액이 환급됩니다</li>
+        <li>예) 남성 3회권 180,000원에서 1회 이용 후 해지 → (180,000 − 80,000) × 80% = 80,000원 환급</li>
+        <li>예) 여성 3회권 130,000원에서 1회 이용 후 해지 → (130,000 − 50,000) × 80% = 64,000원 환급</li>
         <li>예약금은 만남에 참석하면 100% 환불, 불참 시 환불이 불가능합니다</li>
         <li>지인과의 매칭인 경우에만 재매칭이 보장됩니다</li>
       </ul>
