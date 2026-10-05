@@ -348,7 +348,7 @@
   }
 
   /* REFUND */
-  .refund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .refund-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   @media(max-width:880px){.refund-grid{grid-template-columns:1fr}}
   .refund-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
@@ -771,9 +771,14 @@
     </div>
     <div class="refund-grid">
       <div class="refund-card reveal">
+        <div class="icon-circle">🎟️</div>
+        <h3>매칭 확정 시 해당 회차 소진</h3>
+        <p>매칭이 성사되고 식당 예약까지 완료되면 그 회차는 이용하신 것으로 처리돼요. 예약이 완료된 회차는 환불이 어렵습니다.</p>
+      </div>
+      <div class="refund-card reveal">
         <div class="icon-circle">💸</div>
-        <h3>매칭권 해지 시 위약금 20%</h3>
-        <p>중도 해지 시 이미 이용하신 횟수는 정가(남 80,000원 / 여 50,000원)로 빼고, 남은 금액에서 위약금 20%를 제외하고 환급해드려요. 할인은 전체를 다 이용하셨을 때 드리는 혜택이라, 중도 해지 시엔 정가로 계산됩니다.</p>
+        <h3>남은 회차 환불 시 위약금 20%</h3>
+        <p>다회권 이용 중 남은 회차를 해지하시면 이미 이용하신 횟수는 정가(남 80,000원 / 여 50,000원)로 빼고, 남은 금액에서 위약금 20%를 제외하고 환급해드려요. 할인은 전체를 다 이용하셨을 때 드리는 혜택이라, 중도 해지 시엔 정가로 계산됩니다.</p>
       </div>
       <div class="refund-card reveal">
         <div class="icon-circle">🍽️</div>
@@ -790,10 +795,10 @@
     <div class="refund-checklist reveal">
       <h4>⚠️ 환불 신청 전 꼭 확인하세요</h4>
       <ul>
-        <li>매칭권은 서비스 개시 후 해지 시 위약금 20%가 부과돼요</li>
-        <li>이용하신 횟수는 정가(남 80,000원 / 여 50,000원)로 공제하고, 남은 금액에서 위약금 20%를 뺀 금액이 환급됩니다</li>
-        <li>예) 남성 3회권 180,000원에서 1회 이용 후 해지 → (180,000 − 80,000) × 80% = 80,000원 환급</li>
-        <li>예) 여성 3회권 130,000원에서 1회 이용 후 해지 → (130,000 − 50,000) × 80% = 64,000원 환급</li>
+        <li>매칭 성사 후 식당 예약이 완료된 회차는 소진 처리되며 환불되지 않아요</li>
+        <li>다회권에서 남은 회차를 해지하실 땐 이용하신 횟수를 정가(남 80,000원 / 여 50,000원)로 공제하고, 남은 금액에서 위약금 20%를 뺀 금액이 환급됩니다</li>
+        <li>예) 남성 3회권 180,000원에서 1회 이용 후 남은 2회 해지 → (180,000 − 80,000) × 80% = 80,000원 환급</li>
+        <li>예) 여성 3회권 130,000원에서 1회 이용 후 남은 2회 해지 → (130,000 − 50,000) × 80% = 64,000원 환급</li>
         <li>예약금은 만남에 참석하면 100% 환불, 불참 시 환불이 불가능합니다</li>
         <li>지인과의 매칭인 경우에만 재매칭이 보장됩니다</li>
       </ul>
