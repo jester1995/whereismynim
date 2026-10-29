@@ -141,6 +141,14 @@
     font-weight:800;letter-spacing:-0.02em;margin-top:10px;
   }
   .section-head p{color:var(--ink-3);margin-top:10px;font-size:15px}
+  .section-head p.event-note{
+    display:inline-block;margin-top:20px;
+    background:var(--coral-600);color:#fff;
+    font-size:clamp(17px,1.7vw,21px);font-weight:800;letter-spacing:-0.01em;
+    padding:13px 26px;border-radius:999px;
+    box-shadow:0 8px 20px rgba(242,90,74,.28);
+  }
+  @media(max-width:680px){.section-head p.event-note{font-size:16px;padding:12px 20px;margin-top:16px;border-radius:16px}}
 
   /* FEATURES */
   .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -665,7 +673,7 @@
     <div class="section-head reveal">
       <div class="eyebrow">💰 요금제 안내</div>
       <h2>합리적인 가격으로 진심 어린 만남을 경험하세요</h2>
-      <p>🍂 11월 늦가을 이벤트 할인가로 진행하고 있어요</p>
+      <p class="event-note">🍂 11월 늦가을 이벤트 할인가로 진행하고 있어요</p>
     </div>
     <div class="pricing-grid">
       <div class="price-card reveal">
